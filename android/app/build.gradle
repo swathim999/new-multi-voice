@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"  // Android plugin for building the app
+    id "kotlin-android"           // Kotlin plugin for Android projects
+    id "dev.flutter.flutter-gradle-plugin"  // Flutter plugin for Gradle integration
+}
+
+android {
+    namespace = "com.example.multilingual_voice_app"  // Define the namespace for the app
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId = "com.example.multilingual_voice_app"  // Specify the unique application ID
+        minSdk = flutter.minSdkVersion  // Minimum SDK version defined in flutter
+        targetSdk = flutter.targetSdkVersion  // Target SDK version defined in flutter
+        versionCode = flutter.versionCode  // Version code
+        versionName = flutter.versionName  // Version name
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            // Add your own signing config here (e.g., for release builds)
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."  // Path to the Flutter SDK source
+}
